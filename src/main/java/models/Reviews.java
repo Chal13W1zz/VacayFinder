@@ -21,6 +21,19 @@ public class Reviews {
         this.createdAt = createdAt;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Reviews reviews = (Reviews) o;
+        return id == reviews.id && rating == reviews.rating && placeId == reviews.placeId && Objects.equals(reviewer, reviews.reviewer) && Objects.equals(reviewerLocation, reviews.reviewerLocation) && Objects.equals(reviewMessage, reviews.reviewMessage) && Objects.equals(createdAt, reviews.createdAt);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, rating, placeId, reviewer, reviewerLocation, reviewMessage, createdAt);
+    }
+
     public int getId() {
         return id;
     }
@@ -77,20 +90,5 @@ public class Reviews {
         this.createdAt = createdAt;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Reviews review)) return false;
-        return rating == review.rating &&
-                id == review.id &&
-                placeId == review.placeId &&
-                Objects.equals(reviewer, review.reviewer) &&
-                Objects.equals(reviewMessage, review.reviewMessage) &&
-                Objects.equals(reviewerLocation, review.reviewerLocation);
-    }
-    @Override
-    public int hashCode() {
-        return Objects.hash(reviewMessage, reviewer, rating, id, placeId,reviewerLocation);
-    }
 }
 
