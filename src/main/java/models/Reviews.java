@@ -80,8 +80,7 @@ public class Reviews {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Reviews)) return false;
-        Reviews review = (Reviews) o;
+        if (!(o instanceof Reviews review)) return false;
         return rating == review.rating &&
                 id == review.id &&
                 placeId == review.placeId &&
@@ -94,3 +93,4 @@ public class Reviews {
         return Objects.hash(reviewMessage, reviewer, rating, id, placeId,reviewerLocation);
     }
 }
+
