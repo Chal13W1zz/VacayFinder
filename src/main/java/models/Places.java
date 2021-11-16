@@ -68,6 +68,6 @@ public class Places {
     }
     @Override
     public int hashCode() {
-        return Objects.hash(placeName, placeLocation, placeDescription, imageUrl);
+        return Objects.hash(placeName, placeLocation, placeDescription, imageUrl,id);
     }
 }
