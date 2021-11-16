@@ -39,10 +39,11 @@ body {
 }
 .button:hover {
   background-color: #16998c;
+
 }
 
-.button:active {
-  background-color: rgba(44, 90, 86, 0.892);
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+
+a{
+text-decoration: none;
+color:white;
 }
