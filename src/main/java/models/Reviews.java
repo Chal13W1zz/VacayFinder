@@ -76,6 +76,7 @@ public class Reviews {
     public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
