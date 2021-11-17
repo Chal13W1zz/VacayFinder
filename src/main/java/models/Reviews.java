@@ -80,7 +80,8 @@ public class Reviews {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Reviews review)) return false;
+        if (!(o instanceof Reviews)) return false;
+        Reviews review = (Reviews) o;
         return rating == review.rating &&
                 id == review.id &&
                 placeId == review.placeId &&

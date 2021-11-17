@@ -1,5 +1,6 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Places {
@@ -8,12 +9,15 @@ public class Places {
     private String placeDescription;
     private String imageUrl;
     private int id;
+    private static ArrayList<Places> instances = new ArrayList<>();
 
     public Places(String placeName, String placeLocation, String placeDescription, String imageUrl) {
         this.placeName = placeName;
         this.placeLocation = placeLocation;
         this.placeDescription = placeDescription;
+        instances.add(this);
         this.imageUrl = imageUrl;
+
     }
 
     public String getPlaceName() {
@@ -38,6 +42,9 @@ public class Places {
 
     public void setPlaceDescription(String placeDescription) {
         this.placeDescription = placeDescription;
+    }
+    public static ArrayList<Places> getAll() {
+        return instances;
     }
 
     public String getImageUrl() {
