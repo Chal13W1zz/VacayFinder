@@ -7,6 +7,8 @@ import models.Reviews;
 import org.sql2o.Sql2o;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
+
+import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -69,6 +71,17 @@ public class App {
 //            response.redirect("/");
             return null;
         },new HandlebarsTemplateEngine());
+
+        //get a specifc place details
+        get("/places/:id",(request, response)->{
+            Map<String, Object>model = new HashMap<>();
+            int placeId = Integer.parseInt(request.params("id"));
+            Places foundPlace = placeDao.getPlaceById(placeId);
+            model.put("selectedPlace",foundPlace);
+            List<Reviews> reviewsByPlace =  placeDao.getReviewsByPlace(placeId);
+            model.put("reviews",reviewsByPlace);
+            return new ModelAndView(model, "place-details.hbs");
+        }, new HandlebarsTemplateEngine());
 
     }
 }
