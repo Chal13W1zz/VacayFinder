@@ -1,17 +1,28 @@
 {{#partial "content"}}
 
 
-    <p> <img src="{{selectedPlace.imageUrl}}" alt="HTML tutorial" style="width:42px;height:42px;border:0">{{ selectedPlace.PlaceName }}</p>
+    <p> <img src="{{selectedPlace.imageUrl}}" alt="{{ selectedPlace.placeName }} imsge" style="width:42px;height:42px;border:0">{{ selectedPlace.placeName }}</p>
 
     <p>Location:</p>
     <p>{{ selectedPlace.placeLocation }}</p>
 
     <p>Description:</p>
     <p>{{ selectedPlace.placeDescription }}</p>
+    <a href="/review/{{ selectedPlace.id}}/new" class="btn btn-outline-success">Write a review</a>
+
+    {{#each reviews}}
+         String reviewMessage, Timestamp createdAt
+        Reviewer Name {{reviewer}}
+        Rating {{rating}}
+        Reviewer location {{reviewerLocation}}
+        <a href="/review/{{id}}"> View review</a>
+
+    {{/each}}
 
 
-    <a href ="/PLaces/{{selectedPlace.id}}/update">Edit Destination</a>
-    <a href="/places/{{selectedplace.id}}/delete">Delete Destination</a>
+
+
+
 
 {{/partial}}
 
