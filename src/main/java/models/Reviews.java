@@ -94,3 +94,4 @@ public class Reviews {
         return Objects.hash(reviewMessage, reviewer, rating, id, placeId,reviewerLocation);
     }
 }
+
