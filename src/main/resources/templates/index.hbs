@@ -19,5 +19,18 @@
             <img src="/img/showcase.png" alt="" />
         </div>
     </div>
+
+    <div class="destinations">
+
+        {{#each places}}
+            Image: {{imageUrl}}
+            Name: {{placeName}}
+            Location: {{placeLocation}}
+            Description {{placeDescription}}
+            <a href="places/{{id}}" class="btn btn-outline-success">view {{placeName}}</a>
+
+        {{/each}}
+
+    </div>
 {{/partial}}
 {{> "layout.hbs"}}
