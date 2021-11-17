@@ -2,6 +2,7 @@ import  static spark.Spark.*;
 
 import dao.Sql2oPlacesDao;
 import dao.Sql2oReviewsDao;
+import models.Places;
 import org.sql2o.Sql2o;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -30,10 +31,33 @@ public class App {
         //get and display index page
         get("/",(request, response)->{
             Map<String, Object>model = new HashMap<>();
+            model.put("places",placeDao.getAllPlaces());
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
+        //new place form
+        get("/places/new",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            return new ModelAndView(model, "place-form.hbs");
+        }, new HandlebarsTemplateEngine() );
 
+        //process new place
+        post("/places/process",(request, response)->{
+            String placeName = request.queryParams("placeName");
+            String placeLocation = request.queryParams("placeLocation");
+            String imageUrl = request.queryParams("imageUrl");
+            String placeDescription = request.queryParams("placeDescription");
+            Places newPlace = new Places(placeName,placeLocation,placeDescription,imageUrl);
+            placeDao.addPlace(newPlace);
+            response.redirect("/");
+            return null;
+        },new HandlebarsTemplateEngine());
 
+        //get review form
+        get("/review/new",(request, response)->{
+            Map<String, Object>model = new HashMap<>();
+            return new ModelAndView(model, "review-form.hbs");
+        }, new HandlebarsTemplateEngine());
+        
     }
 }
