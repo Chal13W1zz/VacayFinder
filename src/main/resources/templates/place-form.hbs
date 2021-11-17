@@ -1,1 +1,27 @@
-test
+{{#partial "content"}}
+
+    <h1>Add Destination</h1>
+    <form action='/places/new' method='post'>
+        <div class="form-group">
+            <label for="placeName">Destination name</label>
+            <input id="placeName" name="placeName" class="form-control" type="text">
+        </div>
+        <div class="form-group">
+            <label for="placeLocation">Location</label>
+            <input id="placeLocation" name="placeLocation" class="form-control" type="text">
+        </div>
+        <div class="form-group">
+            <label for="placeDescription">Description</label>
+            <input id="placeDescription" name="placeDescription" class="form-control" type="text">
+        </div>
+        <div class="form-group">
+            <label for="imageUrl">Logo</label>
+            <input id="imageUrl" name="imageUrl" class="form-control" type="text">
+        </div>
+        <button type="submit" class="btn">Add</button>
+    </form>
+
+
+{{/partial}}
+
+{{> layout.hbs}}

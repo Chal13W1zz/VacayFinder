@@ -1,0 +1,18 @@
+{{#partial "content"}}
+<h1>Let's add your reviews</h1>
+<form action = "/places/new" method="post">
+    <label for = "name">Your Name</label>
+    <input id ="name" name = "name" type = "text">
+
+    <label for = <"rating">Rating</label>
+    <input id = "rating" name = "rating" type = "text">
+
+    <label for="reviewerLocation">Location</label>
+    <input id="reviewerLocation" name = "reviewerLocation" type="text">
+
+    <label for = "reviewMessage">message</label>
+    <input id="reviewMessage" name="reviewMessage" type="text">
+
+    <button type="submit" class="button" style="vertical-align:middle"><span>ADD</span></button>
+</form>
+{{/partial}}

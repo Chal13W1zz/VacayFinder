@@ -19,5 +19,15 @@
             <img src="/img/showcase.png" alt="" />
         </div>
     </div>
+    <h1>Destinations</h1>
+    {{#if allPlaces}}
+        {{#each allPlaces}}
+            <p>Destination:</p>
+            <p>{{placeName}}</p>
+        {{/each}}
+
+    {{else}}
+        <p>Nothing to view here</p>
+    {{/if}}
 {{/partial}}
 {{> "layout.hbs"}}
