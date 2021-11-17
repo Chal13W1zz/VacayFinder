@@ -12,7 +12,7 @@
             </p>
 
             <div class="pt-5">
-                <button class="button"> <a href="/places/new"/>Add Destination </button>
+                <button class="button"> <a href="/places/new">Add Destination</a> </button>
             </div>
         </div>
         <div class="showcase-image">
@@ -20,17 +20,36 @@
         </div>
     </div>
 
-    <div class="destinations">
+    <div class="start">
+        <p class="text-center start-text pt-5">Start Exploring</p>
 
-        {{#each places}}
-            Image: {{imageUrl}}
-            Name: {{placeName}}
-            Location: {{placeLocation}}
-            Description {{placeDescription}}
-            <a href="places/{{id}}" class="btn btn-outline-success">view {{placeName}}</a>
+        <div class="place-cards d-flex col-md-12">
+    {{#each places}}
+            <a href="">
+                <div class="w3-container">
+                    <div class="w3-card-4" style="width: 70%">
+                        <header class="w3-container w3-light-grey">
+                            <h3><img
+                                    src="https://picsum.photos/200"
+                                    alt="Avatar"
+                                    class="w3-left w3-circle w3-margin-right"
+                                    style="width: 60px"
+                            />{{placeName}}</h3>
+                            <p class="text-muted"><i class="fa fa-map-marker" aria-hidden="true"></i> {{placeLocation}}</p>
+                        </header>
+                        <div class="w3-container">
+                             <p>
+                                {{placeDescription}}
+                            </p>
 
-        {{/each}}
+                        </div>
 
+                    </div>
+                </div>
+            </a>
+    {{/each}}
+        </div>
     </div>
+
 {{/partial}}
 {{> "layout.hbs"}}
