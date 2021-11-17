@@ -3,6 +3,7 @@ import  static spark.Spark.*;
 import dao.Sql2oPlacesDao;
 import dao.Sql2oReviewsDao;
 import models.Places;
+import models.Reviews;
 import org.sql2o.Sql2o;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -58,6 +59,16 @@ public class App {
             Map<String, Object>model = new HashMap<>();
             return new ModelAndView(model, "review-form.hbs");
         }, new HandlebarsTemplateEngine());
-        
+
+        //process review form
+        post("/places/process",(request, response)->{
+            int rating = Integer.parseInt(request.queryParams("rating"));
+            //To Do - add fields
+//            Reviews newReview = new Reviews();
+//            reviewDao.addReview(newReview);
+//            response.redirect("/");
+            return null;
+        },new HandlebarsTemplateEngine());
+
     }
 }
