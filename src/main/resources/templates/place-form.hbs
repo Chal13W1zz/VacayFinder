@@ -1,33 +1,33 @@
 {{#partial "title"}}Location For{{/partial}}
 
 {{#partial "content"}}
-    <h1>Let's Add Your Company</h1>
+    <h1 class="text-center">Let's Add Your Company</h1>
 
     <div class="container">
-        <form>
+        <form method="post" action="/places/process">
             <div>
                 <div class="mb-3">
-                    <label for = "companyInput" class="form-label">Company Name</label>
-                    <input type="text" class = "form-control" id = "companyInput">
+                    <label for = "placeName" class="form-label">Place Name</label>
+                    <input type="text" class = "form-control" id ="placeName" name="placeName">
                 </div>
 
                 <div class = "mb-3">
-                    <label for = "location" class = "form-label">Location</label>
-                    <input type="text" class="form-control" id = "location">
+                    <label for = "placeLocation" class = "form-label">Location</label>
+                    <input type="text" class="form-control" id = "placeLocation" name="placeLocation">
                 </div>
 
                 <div class = "mb-3">
-                    <label for = "logoUrl" class = "form-label">Company Image</label>
-                    <input type = "text" class="form-control" id = "logoUrl">
+                    <label for = "imageUrl" class = "form-label">Company Image</label>
+                    <input type = "text" class="form-control" id = "imageUrl" name="imageUrl">
                 </div>
 
                 <div class = "mb-3">
-                    <label for = "description" class = "form-label">Description</label>
-                    <textarea class="form-control" id = "description" rows = "4"></textarea>
+                    <label for = "placeDescription" class = "form-label">Description</label>
+                    <textarea class="form-control" id = "placeDescription"  name="placeDescription" rows = "4"></textarea>
                 </div>
 
                 <div class = "text-center">
-                    <button type="submit" class="btn btn-primary">Add</button>
+                    <button type="submit" class="btn btn-primary">+ Add Place</button>
                 </div>
             </div>
         </form>
