@@ -1,4 +1,4 @@
-{{partial "title"}}REVIEWS{{partial}}
+{{#partial "title"}}PREVIEWS{{/partial}}
 
 {{#partial "content"}}
     <h1>Tell us about your experience</h1>
@@ -17,6 +17,11 @@
             <div class="mb-3">
                 <label for="inputRating" class="form-label">Rating(From 1-5)</label>
                 <input type="number" class="form-control" id="inputRating">
+            </div>
+
+            <div class ="mb-3">
+                <label for="inputReview" class="form-label">Your Review</label>
+                <textarea class="form-control" id="inputReview" rows="3"></textarea>
             </div>
 
             <div class="text-center">
