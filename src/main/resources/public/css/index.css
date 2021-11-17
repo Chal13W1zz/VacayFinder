@@ -23,6 +23,17 @@ body {
   padding-left: 4em;
   padding-right: 6em;
 }
+.w3-card-4 {
+  background-color: white;
+  padding-top: 7px;
+  padding-bottom: 5px;
+}
+.w3-card-4 {
+  padding-left: 7px;
+  padding-right: 7px;
+}
+.w3-container {
+}
 .button {
   display: inline-block;
   padding: 13px 22px;
@@ -39,11 +50,25 @@ body {
 }
 .button:hover {
   background-color: #16998c;
-
 }
-
-
-a{
-text-decoration: none;
-color:white;
+.start-text {
+  background-color: rgb(237, 210, 207);
+  font-weight: bold;
+  font-size: 22px;
+}
+.start {
+  background-color: rgb(237, 210, 207);
+}
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+  transform: translateY(4px);
+}
+.place-cards {
+  background-color: rgb(237, 210, 207);
+  padding-top: 2em;
+  padding-bottom: 5em;
 }
