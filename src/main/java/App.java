@@ -21,7 +21,7 @@ public class App {
             return new ModelAndView(model, "place-form.hbs");
         }, new HandlebarsTemplateEngine() );
 
-        get("/places/new",(request, response)->{
+        get("/",(request, response)->{
             Map<String, Object>model = new HashMap<>();
             return new ModelAndView(model, "review-form.hbs");
         }, new HandlebarsTemplateEngine());
