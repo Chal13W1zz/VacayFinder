@@ -1,1 +1,37 @@
-test
+{{#partial "title"}}Location For{{/partial}}
+
+{{#partial "content"}}
+    <h1>Let's Add Your Company</h1>
+
+    <div class="container">
+        <form>
+            <div>
+                <div class="mb-3">
+                    <label for = "companyInput" class="form-label">Company Name</label>
+                    <input type="text" class = "form-control" id = "companyInput">
+                </div>
+
+                <div class = "mb-3">
+                    <label for = "location" class = "form-label">Location</label>
+                    <input type="text" class="form-control" id = "location">
+                </div>
+
+                <div class = "mb-3">
+                    <label for = "logoUrl" class = "form-label">Company Image</label>
+                    <input type = "text" class="form-control" id = "logoUrl">
+                </div>
+
+                <div class = "mb-3">
+                    <label for = "description" class = "form-label">Description</label>
+                    <textarea class="form-control" id = "description" rows = "4"></textarea>
+                </div>
+
+                <div class = "text-center">
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{{/partial}}
+
+{{> layout.hbs}}
