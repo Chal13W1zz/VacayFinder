@@ -8,6 +8,9 @@ import org.sql2o.Sql2o;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
@@ -52,36 +55,49 @@ public class App {
             String placeDescription = request.queryParams("placeDescription");
             Places newPlace = new Places(placeName,placeLocation,placeDescription,imageUrl);
             placeDao.addPlace(newPlace);
-            response.redirect("/");
+            response.redirect("/success");
             return null;
         },new HandlebarsTemplateEngine());
 
         //get review form
-        get("/review/new",(request, response)->{
+        get("/review/:id/new",(request, response)->{
             Map<String, Object>model = new HashMap<>();
+            int id = Integer.parseInt(request.params("id"));
+            model.put("placeId",id);
+            model.put("destinations", placeDao.getAllPlaces());
             return new ModelAndView(model, "review-form.hbs");
         }, new HandlebarsTemplateEngine());
 
         //process review form
-        post("/places/process",(request, response)->{
+        post("/review/process",(request, response)->{
             int rating = Integer.parseInt(request.queryParams("rating"));
-            //To Do - add fields
-//            Reviews newReview = new Reviews();
-//            reviewDao.addReview(newReview);
-//            response.redirect("/");
+            int placeId = Integer.parseInt(request.queryParams("placeId"));
+            String reviewer = request.queryParams("reviewer");
+            String reviewerLocation = request.queryParams("reviewerLocation");
+            String reviewMessage = request.queryParams("reviewerMessage");
+            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            String  timeAtm = formatter.format(new Timestamp(new Date().getTime()));
+            Reviews newReview = new Reviews(rating,placeId,reviewer,reviewerLocation,reviewMessage,timeAtm);
+            reviewDao.addReview(newReview);
+            response.redirect("/success");
             return null;
         },new HandlebarsTemplateEngine());
 
-        //get a specifc place details
+        //get a specifc place details and it's reviews
         get("/places/:id",(request, response)->{
             Map<String, Object>model = new HashMap<>();
             int placeId = Integer.parseInt(request.params("id"));
             Places foundPlace = placeDao.getPlaceById(placeId);
             model.put("selectedPlace",foundPlace);
-            List<Reviews> reviewsByPlace =  placeDao.getReviewsByPlace(placeId);
-            model.put("reviews",reviewsByPlace);
+            model.put("reviews",placeDao.getReviewsByPlace(placeId));
             return new ModelAndView(model, "place-details.hbs");
         }, new HandlebarsTemplateEngine());
+
+        //get success page and redirect to home
+        get("/success",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine() );
 
     }
 }

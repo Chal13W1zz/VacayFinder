@@ -1,0 +1,30 @@
+{{#partial "content"}}
+
+
+    <p> <img src="{{selectedPlace.imageUrl}}" alt="{{ selectedPlace.placeName }} image" style="width:42px;height:42px;border:0">{{ selectedPlace.placeName }}</p>
+
+    <p>Location:</p>
+    <p>{{ selectedPlace.placeLocation }}</p>
+
+    <p>Description:</p>
+    <p>{{ selectedPlace.placeDescription }}</p>
+    <a href="/review/{{ selectedPlace.id}}/new" class="btn btn-outline-success">add a review</a>
+
+  {{#if reviews}}
+      {{#each reviews}}
+        Rating  {{rating}}
+        Name:  {{reviewer}}
+        From:  {{reviewerLocation}}
+         Review: {{reviewMessage}}
+          posted at {{createdAt}}
+      {{/each}}
+  {{else}}
+      <p class="text-centers">No reviews available</p>
+      <a href="/review/{{ selectedPlace.id}}/new" class="btn btn-outline-success">Write a review</a>
+  {{/if}}
+
+
+
+{{/partial}}
+
+{{> layout.hbs}}
