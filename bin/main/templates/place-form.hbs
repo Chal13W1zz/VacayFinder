@@ -1,0 +1,37 @@
+{{#partial "title"}}Location For{{/partial}}
+
+{{#partial "content"}}
+    <h1 class="text-center text-color">Let's Add Your Company</h1>
+
+    <div class="container">
+        <form method="post" action="/places/process">
+            <div>
+                <div class="mb-3">
+                    <label for = "placeName" class="form-label text-color">Place Name</label>
+                    <input type="text" class = "form-control" id ="placeName" name="placeName">
+                </div>
+
+                <div class = "mb-3">
+                    <label for = "placeLocation" class = "form-label text-color">Location</label>
+                    <input type="text" class="form-control" id = "placeLocation" name="placeLocation">
+                </div>
+
+                <div class = "mb-3">
+                    <label for = "imageUrl" class = "form-label text-color">Company Image</label>
+                    <input type = "text" class="form-control" id = "imageUrl" name="imageUrl">
+                </div>
+
+                <div class = "mb-3">
+                    <label for = "placeDescription" class = "form-label text-color">Description</label>
+                    <textarea class="form-control" id = "placeDescription"  name="placeDescription" rows = "4"></textarea>
+                </div>
+
+                <div class = "text-center">
+                    <button type="submit" class="btn btn-primary">+ Add Place</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{{/partial}}
+
+{{> layout.hbs}}
