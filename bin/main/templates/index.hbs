@@ -1,0 +1,36 @@
+{{#partial "content"}}
+    <div class="showcase d-md-flex pt-5 align-items-center">
+        <div class="showcase-txt">
+            <p class="showcase-txt-lead">Where the Journey Begins</p>
+            <p class="showcase-text-follow text-muted">
+                Plan and book your perfect trip with expert advice, travel tips,
+                destination information and inspiration from us.<br />
+                We haven't been everywhere but it's on our List!
+            </p>
+            <p class="showcase-text-follow text-muted">
+               Get started by sharing your experience on your last vacation
+            </p>
+
+            <div class="pt-5">
+                <button class="button"> <a href="/places/new"/>Add Destination </button>
+            </div>
+        </div>
+        <div class="showcase-image">
+            <img src="/img/showcase.png" alt="" />
+        </div>
+    </div>
+
+    <div class="destinations">
+
+        {{#each places}}
+            Image: {{imageUrl}}
+            Name: {{placeName}}
+            Location: {{placeLocation}}
+            Description {{placeDescription}}
+            <a href="places/{{id}}" class="btn btn-outline-success">view {{placeName}}</a>
+
+        {{/each}}
+
+    </div>
+{{/partial}}
+{{> "layout.hbs"}}
