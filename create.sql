@@ -17,6 +17,6 @@ reviewerLocation VARCHAR,
 rating int,
 reviewMessage VARCHAR,
 placeId int,
-createdAt timestamp);
+createdAt VARCHAR);
 
 CREATE DATABASE vacayfinder_test WITH TEMPLATE vacayfinder;
