@@ -142,3 +142,25 @@ a:active {
 .reviewer {
   margin-left: 13%;
 }
+.success{
+font-size:90px;
+text-align:center;
+margin-top:20px;
+}
+
+.success-btn{
+padding:10px;
+border-radius:5px;
+position:relative;
+text-align:center;
+}
+
+.text-color{
+color:#FC766AFF
+}
+
+.success-img{
+height:50px;
+position:relative;
+text-align:center;
+}
