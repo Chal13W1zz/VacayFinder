@@ -1,6 +1,9 @@
 body {
   background-color: rgba(201, 235, 232, 0.892);
 }
+.content-body{
+padding-top: 80px;
+}
 .navbrand {
   width: 100%;
   background-color: #184a45ff;
@@ -9,6 +12,8 @@ body {
   padding-bottom: 1em;
   box-shadow: 5px 10px 8px black;
   z-index: 100;
+
+  position:fixed;
 }
 .button:active {
   background-color: #3e8e41;
@@ -17,6 +22,7 @@ body {
 }
 .finder {
   color: #fc766aff;
+  font-weight: bold;
 }
 .showcase-txt-lead {
   font-size: 50px;
@@ -163,4 +169,16 @@ color:#FC766AFF
 height:50px;
 position:relative;
 text-align:center;
+}
+.column {
+  float: left;
+  width: 33.33%;
+  padding:10px;
+}
+
+/* Clear floats after the columns */
+.rowa:after {
+  content: "";
+  display: table;
+  clear: both;
 }

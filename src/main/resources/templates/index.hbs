@@ -8,7 +8,7 @@
                 We haven't been everywhere but it's on our List!
             </p>
             <p class="showcase-text-follow text-muted">
-               Get started by sharing your experience on your last vacation
+                Get started by sharing your experience on your last vacation
             </p>
 
             <div class="pt-5">
@@ -43,13 +43,33 @@
                                 {{placeDescription}}
                             </p>
 
-                        </div>
+        <div class="place-cards rowa">
+            {{#each places}}
+                <a href="places/{{id}}">
+                    <div class="w3-container column">
+                        <div class="w3-card-4" style="width: 70%">
+                            <header class="w3-container w3-light-grey">
+                                <h3><img
+                                        src="https://picsum.photos/200"
+                                        alt="Avatar"
+                                        class="w3-left w3-circle w3-margin-right"
+                                        style="width: 60px"
+                                />{{placeName}}</h3>
+                                <p class="text-muted"><i class="fa fa-map-marker" aria-hidden="true"></i> {{placeLocation}}</p>
+                            </header>
+                            <div class="w3-container">
+                                <p>
+                                    {{placeDescription}}
+                                </p>
 
+                            </div>
+
+                        </div>
                     </div>
-                </div>
-            </a>
-    {{/each}}
+                </a>
+            {{/each}}
         </div>
+
     </div>
 
 {{/partial}}
