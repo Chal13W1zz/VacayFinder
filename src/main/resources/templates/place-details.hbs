@@ -4,7 +4,7 @@
     <div class="card mb-3" style="width: 100%">
         <div class="row g-0">
             <div class="col-md">
-                <img src="https://picsum.photos/500/300?random=2" class="img-fluid" />
+                <img src="{{selectedPlace.imageUrl}}" class="img-fluid" />
             </div>
             <div class="col-md-8">
                 <div class="card-body">
@@ -21,19 +21,21 @@
         </div>
     </div>
 
-    <div class="review-content d-flex ">
-    {{#if reviews}}
-        {{#each reviews}}
+    <div class="review-content d-flex flex-column ">
         <div class="Description col-md-3">
             <p class="comp-description"><h1>About Destination</h1></p>
             <p>{{ selectedPlace.placeDescription }}
             </p>
             <a href="/review/{{ selectedPlace.id}}/new" class="button">Add Review</a>
         </div>
+
+    {{#if reviews}}
+        {{#each reviews}}
+
         <div class="reviewer col-md-4">
             <div class="card text-center">
                 <div class="card-header d-flex ">
-                    <div class="avatar-info"> <p><img src="https://i.pravatar.cc/100" alt=""></p></div>
+                    <div class="avatar-info"> <p><img src="https://i.pravatar.cc/100" alt="" style="width: 100px; height: 100px"></p></div>
 
                     <div>
                         <p>{{reviewer}}</p>
@@ -42,13 +44,10 @@
                         <p>posted at {{createdAt}}</p>
                     </div>
 
-
-
                 </div>
+
                 <div class="card-body">
-
                     <p class="card-text">{{reviewMessage}}</p>
-
                 </div>
 
             </div>
