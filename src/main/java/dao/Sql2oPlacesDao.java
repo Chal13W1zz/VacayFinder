@@ -60,11 +60,11 @@ public class Sql2oPlacesDao implements PlacesDao{
     }
 
     @Override
-    public List<Reviews> getReviewsByPlace(int id) {
+    public List<Reviews> getReviewsByPlace(int placeId) {
         getDrivers();
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("SELECT * FROM reviews WHERE id = :id")
-                    .addParameter("id",id)
+            return conn.createQuery("SELECT * FROM places WHERE placeId = :placeId")
+                    .addParameter("placeId",placeId)
                     .executeAndFetch(Reviews.class);
         }
     }
