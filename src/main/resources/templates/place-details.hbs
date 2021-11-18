@@ -1,0 +1,67 @@
+{{#partial "content"}}
+
+
+    <div class="card mb-3" style="width: 100%">
+        <div class="row g-0">
+            <div class="col-md">
+                <img src="https://picsum.photos/500/300?random=2" class="img-fluid" />
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h1 class="card-title burj">{{ selectedPlace.placeName }}</h1>
+
+                    <p class="card-text">
+                    <p class="text-muted"
+                    ><i class="fa fa-map-marker" aria-hidden="true"></i>
+                    {{ selectedPlace.placeLocation }}</p
+                    >
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="review-content d-flex ">
+    {{#if reviews}}
+        {{#each reviews}}
+        <div class="Description col-md-3">
+            <p class="comp-description"><h1>About Destination</h1></p>
+            <p>{{ selectedPlace.placeDescription }}
+            </p>
+            <a href="/review/{{ selectedPlace.id}}/new" class="button">Add Review</a>
+        </div>
+        <div class="reviewer col-md-4">
+            <div class="card text-center">
+                <div class="card-header d-flex ">
+                    <div class="avatar-info"> <p><img src="https://i.pravatar.cc/100" alt=""></p></div>
+
+                    <div>
+                        <p>{{reviewer}}</p>
+                        <p>Rating: {{rating}}</p>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i> {{reviewerLocation}}
+                        <p>posted at {{createdAt}}</p>
+                    </div>
+
+
+
+                </div>
+                <div class="card-body">
+
+                    <p class="card-text">{{reviewMessage}}</p>
+
+                </div>
+
+            </div>
+        </div>
+        {{/each}}
+    {{else}}
+        <p class="text-centers">No reviews available</p>
+        <a href="/review/{{ selectedPlace.id}}/new" class="btn btn-outline-success">Write a review</a>
+    {{/if}}
+
+    </div>
+
+
+{{/partial}}
+
+{{> layout.hbs}}

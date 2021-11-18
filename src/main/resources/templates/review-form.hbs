@@ -1,33 +1,36 @@
 {{#partial "title"}}PREVIEWS{{/partial}}
 
 {{#partial "content"}}
-    <h1>Tell us about your experience</h1>
+    <h1 class="text-center">Tell us about your experience</h1>
     <div class="container">
-        <div>
+        <form action="/review/process" method="post">
             <div class="mb-3">
-                <label for = "inputName" class="form-label">Tell us you name</label>
-                <input type="text" class = "form-control" id="inputName">
+                <label for = "reviewer" class="form-label">Tell us you name</label>
+                <input type="text" class = "form-control" id="reviewer" name="reviewer">
+            </div>
+            <input class="d-none" type="number" placeholder="{{placeId}}" id="placeId" name="placeId" value="{{placeId}}">
+
+
+            <div class="mb-3">
+                <label for = "reviewerLocation" class = "form-label">Your Location</label>
+                <input type="text" class = "form-control" id="reviewerLocation" name="reviewerLocation">
             </div>
 
             <div class="mb-3">
-                <label for = "inputLocation" class = "form-label">Location</label>
-                <input type="text" class = "form-control" id="inputLocation">
-            </div>
-
-            <div class="mb-3">
-                <label for="inputRating" class="form-label">Rating(From 1-5)</label>
-                <input type="number" class="form-control" id="inputRating">
+                <label for="rating" class="form-label">Rating(1-5)</label>
+                <input type="number" class="form-control" id="rating" name="rating">
             </div>
 
             <div class ="mb-3">
-                <label for="inputReview" class="form-label">Tell us about your experience</label>
-                <textarea class="form-control" id="inputReview" rows="3"></textarea>
+                <label for="reviewerMessage" class="form-label">Tell us about your experience</label>
+                <textarea class="form-control" name="reviewerMessage" id="reviewerMessage" rows="3"></textarea>
             </div>
 
             <div class="text-center">
-                <button type="submit" class = "btn btn-primary">Submit</button>
+                <button type="submit" class = "btn btn-primary">Post Review</button>
             </div>
         </form>
+    </div>
     </div>
 {{/partial}}
 
