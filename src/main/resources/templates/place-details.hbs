@@ -21,42 +21,43 @@
         </div>
     </div>
 
-    <div class="review-content d-flex flex-column ">
+    <div class="review-content d-flex flex-col">
         <div class="Description col-md-3">
             <p class="comp-description"><h1>About Destination</h1></p>
             <p>{{ selectedPlace.placeDescription }}
             </p>
-            <a href="/review/{{ selectedPlace.id}}/new" class="button">Add Review</a>
+            <a href="/review/{{ selectedPlace.id}}/new" class="button mb-4">Add Review</a>
         </div>
 
-    {{#if reviews}}
-        {{#each reviews}}
+        <div class="d-flex flex-column">
 
-        <div class="reviewer col-md-4">
-            <div class="card text-center">
-                <div class="card-header d-flex ">
-                    <div class="avatar-info"> <p><img src="https://i.pravatar.cc/100" alt="" style="width: 100px; height: 100px"></p></div>
+                {{#each reviews}}
+                    <div class="reviewer col-md-4">
+                        <div class="card text-center">
+                            <div class="card-header">
+                                <div class="avatar-info"> <p><img src="https://i.pravatar.cc/100" alt="" style="width: 100px; height: 100px"></p></div>
 
-                    <div>
-                        <p>{{reviewer}}</p>
-                        <p>Rating: {{rating}}</p>
-                        <i class="fa fa-map-marker" aria-hidden="true"></i> {{reviewerLocation}}
-                        <p>posted at {{createdAt}}</p>
+                                <div>
+                                    <p>{{reviewer}}</p>
+                                    <p>Rating: {{rating}}</p>
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i> {{reviewerLocation}}
+                                    <p>posted at {{createdAt}}</p>
+                                </div>
+
+                            </div>
+
+                            <div class="card-body">
+                                <p class="card-text">{{reviewMessage}}</p>
+
+                            </div>
+
+                        </div>
+                        <br>
+                        <br>
                     </div>
+                {{/each}}
 
-                </div>
-
-                <div class="card-body">
-                    <p class="card-text">{{reviewMessage}}</p>
-                </div>
-
-            </div>
         </div>
-        {{/each}}
-    {{else}}
-        <p class="text-centers">No reviews available</p>
-        <a href="/review/{{ selectedPlace.id}}/new" class="btn btn-outline-success">Write a review</a>
-    {{/if}}
 
     </div>
 
