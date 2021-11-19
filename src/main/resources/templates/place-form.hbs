@@ -1,1 +1,71 @@
-test
+{{#partial "title"}}Location For{{/partial}}
+
+{{#partial "content"}}
+    <div class="d-flex company-form">
+        <div class="div-1">
+            <p class="text-center lets">Let's Add Your Destination</p>
+            <p class="text-muted haven">
+                Tell us about your haven name,description
+                Don't forget <br />to add a logo. This is your chance
+                to let us know why we<br /> should visit this destination
+                Remember we<br /> only need the link for your logo.
+            </p>
+        </div>
+        <div class="div2">
+            <p class="inf text-center">Destination Information</p>
+            <div class="container">
+                <form method="post" action="/places/process">
+                    <div>
+                        <div class="mb-3">
+                            <label for="placeName" class="form-label">Place Name</label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    id="placeName"
+                                    name="placeName"
+                            />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="placeLocation" class="form-label">Location</label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    id="placeLocation"
+                                    name="placeLocation"
+                            />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="imageUrl" class="form-label">Destination Image</label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    id="imageUrl"
+                                    name="imageUrl"
+                            />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="placeDescription" class="form-label"
+                            >Description</label
+                            >
+                            <textarea
+                                    class="form-control"
+                                    id="placeDescription"
+                                    name="placeDescription"
+                                    rows="4"
+                            ></textarea>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="button add">Add</button>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+{{/partial}}
+
+{{> layout.hbs}}
