@@ -10,9 +10,9 @@ public class Reviews {
     private String reviewer;
     private String reviewerLocation;
     private String reviewMessage;
-    private String createdAt;
+    private Timestamp createdAt;
 
-    public Reviews(int rating, int placeId, String reviewer, String reviewerLocation, String reviewMessage, String createdAt) {
+    public Reviews(int rating, int placeId, String reviewer, String reviewerLocation, String reviewMessage, Timestamp createdAt) {
         this.rating = rating;
         this.placeId = placeId;
         this.reviewer = reviewer;
@@ -82,11 +82,11 @@ public class Reviews {
         this.reviewMessage = reviewMessage;
     }
 
-    public String getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(String createdAt) {
+    public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
 
